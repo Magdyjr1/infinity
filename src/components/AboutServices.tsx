@@ -137,21 +137,21 @@ export const AboutServices: React.FC = () => {
           </div>
 
           {/* 6 Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mb-16">
             {CORE_SERVICES.map((service) => {
               const Icon = serviceIcons[service.id as keyof typeof serviceIcons] || Wrench;
               return (
                 <div
                   key={service.id}
-                  className="bg-white p-7 border border-slate-200/90 rounded-sm hover:border-[#002D54] transition-all hover:shadow-xs group"
+                  className="bg-white p-3 sm:p-7 border border-slate-200/90 rounded-sm hover:border-[#002D54] transition-all hover:shadow-xs group"
                 >
-                  <div className="w-10 h-10 rounded-xs bg-slate-100 text-[#002D54] flex items-center justify-center mb-5 group-hover:bg-[#002D54] group-hover:text-white transition-colors">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xs bg-slate-100 text-[#002D54] flex items-center justify-center mb-3 sm:mb-5 group-hover:bg-[#002D54] group-hover:text-white transition-colors">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <h3 className="font-heading font-bold text-base text-[#002D54] mb-2.5">
+                  <h3 className="font-heading font-bold text-sm sm:text-base text-[#002D54] mb-2 sm:mb-2.5">
                     {service.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-[10px] sm:text-xs text-slate-600 leading-relaxed">
                     {service.desc}
                   </p>
                 </div>
