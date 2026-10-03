@@ -73,9 +73,11 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({
               <span className="text-xs font-bold tracking-[0.2em] text-[#002D54] uppercase">
                 {previewMode ? 'Verified Compliance Preview' : 'Verified Compliance • Images 50 to 60'}
               </span>
-              <span className="bg-sky-100 text-[#002D54] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                {previewMode ? '2 Flagship Approvals' : 'All 11 Documents'}
-              </span>
+              {!previewMode && (
+                <span className="bg-sky-100 text-[#002D54] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                  All 11 Documents
+                </span>
+              )}
             </div>
             <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#002D54] tracking-tight">
               {previewMode ? 'Accreditations & Certificates' : 'Our Certificates & Quality Accreditations'}
