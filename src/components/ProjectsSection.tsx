@@ -78,14 +78,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-xs font-bold tracking-[0.2em] text-[#002D54] uppercase">
-                {previewMode ? 'Landmark References Preview' : 'Reference Portfolio • Images 61 to 80'}
+                {previewMode ? 'Project Portfolio' : 'Reference Portfolio • Images 61 to 80'}
               </span>
               <span className="bg-sky-100 text-[#002D54] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                {previewMode ? '4 Iconic Mega Projects' : 'All 20 Projects'}
+                {previewMode ? 'Featured Projects' : 'All 20 Projects'}
               </span>
             </div>
             <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#002D54] tracking-tight">
-              {previewMode ? 'Featured Mega Projects' : 'Some of Our Mega Projects'}
+              {previewMode ? 'Selected Project References' : 'Some of Our Mega Projects'}
             </h2>
             <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
               {previewMode

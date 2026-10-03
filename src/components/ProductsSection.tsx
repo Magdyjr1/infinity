@@ -107,14 +107,14 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-xs font-bold tracking-[0.2em] text-[#002D54] uppercase">
-                {previewMode ? 'Featured Products Preview' : 'Industrial Catalog • Images 14 to 49'}
+                {previewMode ? 'Product Portfolio' : 'Industrial Catalog • Images 14 to 49'}
               </span>
               <span className="bg-sky-100 text-[#002D54] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                {previewMode ? '4 Flagship Fixings' : 'All 36 Products'}
+                {previewMode ? 'Featured Products' : 'All 36 Products'}
               </span>
             </div>
             <h2 className="font-heading font-black text-3xl sm:text-4xl text-[#002D54] tracking-tight">
-              {previewMode ? 'Core Fixation Products' : 'Complete Products Catalog'}
+              {previewMode ? 'Fixing Solutions' : 'Complete Products Catalog'}
             </h2>
             <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
               {previewMode
