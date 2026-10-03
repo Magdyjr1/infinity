@@ -10,6 +10,8 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollY = React.useRef(0);
 
   const navLinks = [
     { id: 'home', label: 'Home', isPage: true, icon: Home },
@@ -23,7 +25,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      setIsScrolled(currentScrollY > 20);
+
+      if (currentScrollY <= 0) {
+        setIsHeaderVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        setIsHeaderVisible(false);
+      } else {
+        setIsHeaderVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -43,7 +57,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isHeaderVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+        } ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm'
             : 'bg-white border-b border-slate-100'
@@ -139,17 +155,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             </div>
 
             {/* Mobile Hamburger Button */}
-            <div className="flex items-center gap-2 lg:hidden">
-              <a
-                href="https://wa.me/201000100869"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-emerald-600 hover:bg-emerald-50 rounded-xs sm:hidden"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle className="w-5 h-5" />
-              </a>
-
+            <div className="flex items-center lg:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 text-slate-700 hover:text-[#002D54] hover:bg-slate-100 rounded-xs transition-colors focus:outline-none"

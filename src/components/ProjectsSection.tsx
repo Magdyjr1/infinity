@@ -141,7 +141,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         )}
 
         {/* Projects Grid: 4 items on Home, 20 items on Subpage */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {displayProjects.map((project) => (
             <div
               key={project.id}
